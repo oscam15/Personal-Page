@@ -1,0 +1,87 @@
+NOTAS:
+
+file_put_contents('php://stderr', print_r($sql, TRUE));
+
+SELECT Clientes.idCliente, Clientes.nombre, Clientes.apPaterno, Clientes.apMaterno,
+Viajes.idViaje, Viajes.fechaAlta,
+Puntos.idPunto, Puntos.fechaHora, Puntos.estadoDireccion, Puntos.delegacionMunicipioDireccion, Puntos.codigoPostalDireccion, Puntos.coloniaDireccion, Puntos.calleNumeroDireccion, Puntos.descripcionDireccion
+FROM Clientes
+INNER JOIN Viajes ON Clientes.idCliente = Viajes.idCliente
+INNER JOIN Puntos ON Viajes.idViaje = Puntos.idViaje
+
+
+
+
+SELECT Puntos.* , FIND_IN_SET(CONCAT(`fechaHora`,`estadoDireccion`,`delegacionMunicipioDireccion`,`codigoPostalDireccion`,`coloniaDireccion`,`calleNumeroDireccion`,`descripcionDireccion`),x) n FROM Puntos JOIN (
+SELECT `idViaje` , GROUP_CONCAT(`fechaHora`,`estadoDireccion`,`delegacionMunicipioDireccion`,`codigoPostalDireccion`,`coloniaDireccion`,`calleNumeroDireccion`,`descripcionDireccion`) x FROM Puntos GROUP BY idViaje)
+y ON y.idViaje = Puntos.idViaje
+
+
+
+
+
+
+  var salida = "<table>";
+                        var fecha = "";
+                        var diaCount = 1;
+                        $.each(row.puntos, function( index, value ) {
+                            var hora = new Date("1970-01-01 "+value["hora"]);
+                            if(index==0){
+                                fecha = value["fecha"];
+                                salida+=
+                                    '<tr><td>'+diaCount+'</td>'+
+                                    '<td>'+value["fecha"]+'</td>'+
+                                    '<td><table>' +
+                                        '<tr>' +
+                                        '<td>'+((!value["hora"])?'--:--':$.format.date(hora, "HH:mm'h'r's'."))+'</td><td> '+
+                                        '<td>'+value["estadoDireccion"]+'</td><td> '+
+                                        '<td>'+value["delegacionMunicipioDireccion"]+'</td><td> '+
+                                        '<td>'+value["codigoPostalDireccion"]+'</td><td> '+
+                                        '<td>'+value["coloniaDireccion"]+'</td><td> '+
+                                        '<td>'+value["calleNumeroDireccion"]+'</td><td> '+
+                                        '<td>'+value["descripcionDireccion"]+'</td><td> '+
+                                        '</tr>';
+                                if(index == (row.puntos.length-1)){
+                                    salida += '</table></td></tr></table>';
+                                }
+                            }else{
+
+                                if(fecha==value["fecha"]){
+                                    salida += '<tr>' +
+                                        '<td>'+((!value["hora"])?'--:--':$.format.date(hora, "HH:mm'h'r's'."))+'</td><td> '+
+                                        '<td>'+value["estadoDireccion"]+'</td><td> '+
+                                        '<td>'+value["delegacionMunicipioDireccion"]+'</td><td> '+
+                                        '<td>'+value["codigoPostalDireccion"]+'</td><td> '+
+                                        '<td>'+value["coloniaDireccion"]+'</td><td> '+
+                                        '<td>'+value["calleNumeroDireccion"]+'</td><td> '+
+                                        '<td>'+value["descripcionDireccion"]+'</td><td> '+
+                                        '</tr>';
+                                    if(index == (row.puntos.length-1)){
+                                        salida += '</table></td></tr></table>';
+                                    }
+
+                                }else {
+                                    diaCount++;
+                                    salida += '</table></td></tr>' +
+                                        '<tr><td>'+diaCount+'</td>'+
+                                        '<td>'+value["fecha"]+'</td>'+
+                                        '<td><table>' +
+                                        '<tr>' +
+                                        '<td>'+((!value["hora"])?'--:--':$.format.date(hora, "HH:mm'h'r's'."))+'</td><td> '+
+                                        '<td>'+value["estadoDireccion"]+'</td><td> '+
+                                        '<td>'+value["delegacionMunicipioDireccion"]+'</td><td> '+
+                                        '<td>'+value["codigoPostalDireccion"]+'</td><td> '+
+                                        '<td>'+value["coloniaDireccion"]+'</td><td> '+
+                                        '<td>'+value["calleNumeroDireccion"]+'</td><td> '+
+                                        '<td>'+value["descripcionDireccion"]+'</td><td> '+
+                                        '</tr>';
+                                    if(index == (row.puntos.length-1)){
+                                        salida += '</table></td></tr></table>';
+                                    }
+                                }
+                                fecha = value["fecha"];
+                            }
+
+                        });
+                        salida +=  "</table>";
+                        return salida;

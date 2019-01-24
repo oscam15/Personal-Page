@@ -1,0 +1,237 @@
+body{
+	color: #1C1D21; 
+	min-width: 320px;
+	overflow: scroll;
+}
+
+h2{
+	font-weight: bold;
+}
+
+img{
+	width: 100%;
+}
+
+p{
+	font-size: 1.5em;
+	text-align: justify;
+}
+
+.applications{
+	float: right;
+}
+
+.applications2{
+	float: left;
+}
+
+.background-black{
+	background-color: #1C1D21;
+}
+
+.background-red{
+	background-color: red;
+}
+
+.black{
+	color: #1C1D21;
+}
+
+.fontBigHead{
+	font-size: 5vw;
+	line-height: 0.9;
+}
+
+.fontBig4em{
+	font-size: 4em;
+	line-height: 0.9;
+}
+
+.fontBig3p5em{
+	font-size: 3.5em;
+}
+
+.fontBig3em{
+	font-size: 3em;
+}
+
+.fontBig2em{
+	font-size: 2em;
+}
+
+.font-poriet-one{
+	font-family: 'Poiret One', sans-serif;
+}
+
+.float-quit{
+	float: none;
+}
+
+.footerIn{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.height200{
+	height: 500px;
+}
+
+.inlineBlock{
+	float: none;
+	display: inline-block;
+}
+
+.listClean{
+	margin-top: 10px;
+	padding-left: 21px;
+	font-size: 1.5em;
+}
+
+.logo{
+	width: 10%;
+}
+
+.marginAbove{
+	margin-top: -50px;
+}
+
+.marginCero{
+	margin: -1px;
+}
+
+.marginLeftNo{
+	margin-left: 0px;
+	margin-bottom: 0px;
+}
+
+.margin-right1em{
+	padding-right: 1em;
+}
+
+.paddingLarge{
+	padding: 10px 0px 10px 0px;
+}
+
+.shadowBlack{
+	text-shadow: 1px 0px 0px #1C1D21,
+	1px 1px 0px #1C1D21,
+	0px 1px 0px #1C1D21,
+	-1px 1px 0px #1C1D21,
+	-1px 0px 0px #1C1D21,
+	-1px -1px 0px #1C1D21,
+	0px -1px 0px #1C1D21;
+	
+}
+
+.shadowBlue{
+	text-shadow: 1px 0px 0px #92CDCF,
+	1px 1px 0px #92CDCF,
+	0px 1px 0px #92CDCF,
+	-1px 1px 0px #92CDCF,
+	-1px 0px 0px #92CDCF,
+	-1px -1px 0px #92CDCF,
+	0px -1px 0px #92CDCF;
+	
+}
+
+.shadowGrey{
+	text-shadow: 1px 0px 0px #31353D,
+	1px 1px 0px #31353D,
+	0px 1px 0px #31353D,
+	-1px 1px 0px #31353D,
+	-1px 0px 0px #31353D,
+	-1px -1px 0px #31353D,
+	0px -1px 0px #31353D;
+	
+}
+
+.shadowWhite{
+	text-shadow: 1px 0px 0px #EEEFF7,
+	1px 1px 0px #EEEFF7,
+	0px 1px 0px #EEEFF7,
+	-1px 1px 0px #EEEFF7,
+	-1px 0px 0px #EEEFF7,
+	-1px -1px 0px #EEEFF7,
+	0px -1px 0px #EEEFF7;
+	
+}
+
+.vcenter {
+	padding-top: 3vw;
+	padding-bottom: 3vw;
+	padding-right: 7px;
+}
+
+.white{
+	color: #EEEFF7;
+}
+
+
+
+@media screen and (max-width: 690px) {
+  .yourClass {
+    content:url("../img/me12.jpg");
+  }
+
+	.mail{
+		font-size: 25px;
+	}
+}
+
+@media screen and (min-width: 690px) {
+  .yourClass {
+    content:url("../img/me1.jpg");
+  }
+
+	.mail{
+		font-size: 3vw;
+	}
+}
+
+
+
+
+
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #EEEFF7;
+  border-radius: 1px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.btn-primary {
+    background: #445878;
+    color: #ffffff;
+    border-color: #31353D;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+
+
